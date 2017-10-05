@@ -1,5 +1,7 @@
 package com.olx.sac.sacserviceapi.attendance;
 
+import java.util.Date;
+
 import com.olx.sac.sacserviceapi.constants.ReasonCalled;
 import com.olx.sac.sacserviceapi.constants.TypeOfCall; 
 
@@ -8,8 +10,16 @@ public class CallDTO {
 	private String phone;
 	private String details;
 	private String Uf;
-    private TypeOfCall typeOfCall;
-    private ReasonCalled reasonCalled;
+	private Date careDay;
+	private TypeOfCall typeOfCall;
+	private ReasonCalled reasonCalled;
+
+	public Date getCareDay() {
+		return careDay;
+	}
+	public void setCareDay(Date careDay) {
+		this.careDay = careDay;
+	}
     
 	public String getPhone() {
 		return phone;
