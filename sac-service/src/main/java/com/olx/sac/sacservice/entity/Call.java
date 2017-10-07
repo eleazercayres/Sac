@@ -10,6 +10,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.olx.sac.sacserviceapi.constants.ReasonCalled;
@@ -32,8 +34,9 @@ public class Call implements Serializable {
 	@Column(name="DETAILS")
 	private String details;
 	
-	@Column(name="UF")
-	private String Uf;
+	@ManyToOne
+	@JoinColumn(name="ID_STATE", nullable = false)
+	private State uf;
 	
 	@Column(name="DT_CAREDAY", nullable = false, columnDefinition="TIMESTAMP")
 	private Date careDay;
@@ -58,12 +61,6 @@ public class Call implements Serializable {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public String getUf() {
-		return Uf;
-	}
-	public void setUf(String uf) {
-		Uf = uf;
-	}
 	public Date getCareDay() {
 		return careDay;
 	}
@@ -81,6 +78,18 @@ public class Call implements Serializable {
 	}
 	public void setReasonCalled(ReasonCalled reasonCalled) {
 		this.reasonCalled = reasonCalled;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public State getUf() {
+		return uf;
+	}
+	public void setUf(State uf) {
+		this.uf = uf;
 	}
 	
 }

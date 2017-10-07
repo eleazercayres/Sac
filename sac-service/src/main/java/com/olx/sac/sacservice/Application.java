@@ -1,30 +1,30 @@
 package com.olx.sac.sacservice;
 
 import org.apache.log4j.Logger;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.web.client.RestOperations;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import com.planetj.servlet.filter.compression.CompressingFilter;
-
+@EnableAsync
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class Application {
 
 	private static Logger logger = Logger.getLogger(Application.class);
 	
-	@Bean
-	 public CompressingFilter compressingFilter() {
-	     return new CompressingFilter();
-	 }
-	
-	@Bean
-	RestOperations getRestOperation() {
-	    return new RestTemplate(new SimpleClientHttpRequestFactory());
-	}
+	@Bean(name="workExecutor")
+    public TaskExecutor taskExecutor() {
+      ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+      taskExecutor.setMaxPoolSize(10);
+      taskExecutor.setCorePoolSize(5);
+      taskExecutor.setQueueCapacity(10);
+      taskExecutor.setThreadNamePrefix("Sac-Service");
+      taskExecutor.afterPropertiesSet();
+      taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
+      return taskExecutor;
+    }
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -36,11 +36,6 @@ public class Application implements CommandLineRunner {
 		} finally {
 			logger.info("Application Started");
 		}
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		logger.info("Slave Monitor Producer running!");
 	}
 
 }
