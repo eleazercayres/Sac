@@ -9,11 +9,25 @@ public class CallDTO {
 
 	private String phone;
 	private String details;
-	private String Uf;
+	private StateDTO Uf;
+	private String ufName;
 	private Date careDay;
 	private TypeOfCall typeOfCall;
 	private ReasonCalled reasonCalled;
 
+	public CallDTO(String phone, String details, String ufName, Date careDay, TypeOfCall typeOfCall,
+			ReasonCalled reasonCalled) {
+		super();
+		this.phone = phone;
+		this.details = details;
+		this.ufName = ufName;
+		this.careDay = careDay;
+		this.typeOfCall = typeOfCall;
+		this.reasonCalled = reasonCalled;
+	}
+	
+	public CallDTO() {}
+	
 	public Date getCareDay() {
 		return careDay;
 	}
@@ -33,12 +47,6 @@ public class CallDTO {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public String getUf() {
-		return Uf;
-	}
-	public void setUf(String uf) {
-		Uf = uf;
-	}
 	public TypeOfCall getTypeOfCall() {
 		return typeOfCall;
 	}
@@ -50,6 +58,26 @@ public class CallDTO {
 	}
 	public void setReasonCalled(ReasonCalled reasonCalled) {
 		this.reasonCalled = reasonCalled;
+	}
+	public StateDTO getUf() {
+		return Uf;
+	}
+	public void setUf(StateDTO uf) {
+		Uf = uf;
+	}
+
+	public String getUfName() {
+		return ufName;
+	}
+
+	public void setUfName(String ufName) {
+		this.ufName = ufName;
+	}
+
+	@Override
+	public String toString() {
+		return "CallDTO [phone=" + phone + ", details=" + details + ", Uf=" + Uf + ", ufName=" + ufName + ", careDay="
+				+ careDay + ", typeOfCall=" + typeOfCall + ", reasonCalled=" + reasonCalled + "]";
 	}
     
 }
