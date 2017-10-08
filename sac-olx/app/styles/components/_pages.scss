@@ -1,0 +1,54 @@
+.pages{
+  @extend .align-items-center;
+  @extend .align-justify-content-flex-end;
+  @extend .display-flex;
+  width:100%;
+  margin-bottom:0.5em;
+
+  li{
+    background-color:$color-11;
+    list-style:none;
+    @include border-radius(50%);
+    text-align: center;
+    margin:0em 0.4em;
+  }
+
+  a, span{
+    @extend .align-items-center;
+    @extend .align-justify-content-center;
+    @extend .display-flex;
+    color:$color-12;
+    height:1.5em;
+    text-decoration: none;
+    width:1.5em;
+  }
+
+  .step-done{
+    background-color:$color-5;
+  }
+}
+
+.error-page {
+  h1 {
+    font-size: 5rem;
+    color: $color-5;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+  p {
+    color: $color-5;
+    margin: 50px 0;
+    font-size: 1.2em;
+    max-width: 350px;
+    line-height: 1.1em;
+  }
+  a {
+    background-color: $color-5;
+    font-size: 1.3em;
+    padding: 25px 35px;
+    display: inline-block;
+    color: $color-2;
+    text-decoration: none;
+  }
+  margin-bottom: 100px;
+}

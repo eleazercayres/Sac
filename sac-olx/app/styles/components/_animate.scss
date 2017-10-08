@@ -1,0 +1,59 @@
+@include keyframes(wifiAnimate){
+  from {
+    left: 30%;
+    top: 35%;
+    width: 40%;
+  }
+
+  to {
+    left: 40%;
+    top:20px;
+    width: 20%;
+  } 
+}
+
+@include keyframes(stepAnimate){
+  from {
+    top: 1600px;
+  }
+
+  to {
+    top:10px;
+  } 
+}
+
+@include keyframes(wifiAnimateDesktop){
+  from {
+    left:45%;
+    width: 10%;
+    top: 35%;
+  }
+
+  to {
+    left:46.5%;
+    width: 7%;
+    top:20px;
+  } 
+}
+
+@include keyframes(fadeIn){
+  from {
+    @include opacity(0);
+  }
+
+  to {
+    @include opacity(1);
+  } 
+}
+
+@include keyframes(slideInDown){
+  from {
+    height: 0;
+    @include opacity(0);
+  }
+
+  to {
+    height: auto;
+    @include opacity(1);
+  } 
+}

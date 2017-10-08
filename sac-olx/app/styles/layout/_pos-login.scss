@@ -1,0 +1,93 @@
+.image-animate{
+  @extend .align-items-center;
+  @extend .align-justify-content-center;
+  @extend .display-flex;
+  left: 0;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  z-index:-1;
+  margin:0 auto;
+
+  img{
+    position: absolute;
+    @include animation(0.5s, 1s, wifiAnimate, both, 1);
+    left:30%;
+
+    @media screen and (min-width:767px) {
+      @include animation(0.5s, 1s, wifiAnimateDesktop, both, 1);
+      left: 45%;
+    }
+  }
+}
+
+.play-animation{
+  img{
+    @include animation(0.5s, 1s, wifiAnimate, both, 1);
+
+    @media screen and (min-width:768px) {
+      @include animation(0.5s, 1s, wifiAnimateDesktop, both, 1);
+    }
+  }
+}
+
+.box-animate{
+  margin-top: 3em;
+  position: relative;
+}
+
+.animate-step{
+  @include animation(0.7s, 1s, stepAnimate, both, 1);
+}
+
+.animate-nav{
+  @include animation(3s, 1s, fadeIn, both, 1);
+}
+
+.api-flight{
+  @extend .simplon-bp;
+  border:1px solid $color-1;
+  margin-top: 1.2em;
+  padding: 1.1em;
+
+  h3{
+    color:$color-7;
+    font-size: 0.8em;
+    font-weight: regular;
+    margin-bottom: 0.5em;
+  }
+
+  p{
+    font-size: 0.85em;
+    margin-bottom: 1em;
+  }
+
+  .column-2{
+    @extend .align-items-flex-start;
+    @extend .align-justify-content-space-between;
+    @extend .display-flex;
+    width: 85%;
+  }
+}
+
+.titles{
+  a{
+    border-bottom: 1px solid $color-4;
+    display: block;
+    @include filter(grayscale(100%));
+    padding:0.5em;
+    text-align: center;
+    @include transition-property(filter);
+    @include transition-duration(1s);
+    width: 100%;
+
+    &:hover{
+      background-color:$color-4;
+      @include filter(grayscale(0%));
+    }
+
+    &:last-child{
+      border-bottom:0px;
+    }
+  }
+}

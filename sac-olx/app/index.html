@@ -1,0 +1,70 @@
+<!doctype html>
+<html ng-app="sacolx" ng-controller="mainJsonDataCtrl">
+<head>
+  <title>Sac Olx</title>
+  <meta charset="utf-8">
+  <meta name="description" content="olx">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimal-ui">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Oi">
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="Expires" content="-1">
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/jquery-modal/jquery.modal.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-touchspin/src/jquery.bootstrap-touchspin.css" />
+  <link rel="stylesheet" href="bower_components/c3/c3.css" />
+  <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+  <link rel="stylesheet" href="bower_components/datatables-colvis/css/dataTables.colVis.css" />
+  <link rel="stylesheet" href="bower_components/google-code-prettify/bin/prettify.min.css" />
+  <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="bower_components/patternfly-bootstrap-combobox/css/bootstrap-combobox.css" />
+  <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.css" />
+  <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.css" />
+  <!-- endbower -->
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/jquery-validation/dist/jquery.validate.js"></script>
+  <script src="bower_components/jquery-mask-plugin/dist/jquery.mask.js"></script>
+  <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="bower_components/jquery-modal/jquery.modal.js"></script>
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+
+<script src="scripts/controllers/mainJsonDataCtrl.js"></script>
+<script src="scripts/services/apiservice.js"></script>
+<script src="scripts/services/authinterceptor.js"></script>
+<script src="scripts/services/loading.js"></script>
+<script src="scripts/controllers/errorpage.js"></script>
+
+<!-- endbuild -->
+<body>
+    <body>
+        
+        <div ng-include src="'views/navigation_menu.html'"></div>	
+            
+            <div class="container-fluid">
+                <ng-view></ng-view>
+            </div>
+        
+            <footer class="footer container-fluid text-right">
+                <small>2017 Eleazer.</small>
+                <small>Versão</small>
+            </footer>
+        </body>
+</body>
+</html>

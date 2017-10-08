@@ -1,0 +1,62 @@
+@mixin input-placeholder {
+  @include with-each-prefix(css-placeholder, $input-placeholder-support-threshold) {
+    @if $current-prefix == -webkit {
+      &::-webkit-input-placeholder {
+        @content;
+      }
+    }
+    @else if $current-prefix == -moz {
+      // for Firefox 19 and below
+      @if support-legacy-browser("firefox", "4", "19", $threshold: $input-placeholder-support-threshold) {
+        &:-moz-placeholder {
+          @content;
+        }
+      }
+      // for Firefox 20 and above
+      &::-moz-placeholder {
+        @content;
+      }
+    }
+    @else if $current-prefix == -ms {
+      &:-ms-input-placeholder {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin single-transition($property: $default-transition-property, $duration: $default-transition-duration, $function: $default-transition-function, $delay: $default-transition-delay) {
+  @include transition(compact($property $duration $function $delay));
+}
+
+@mixin animation($delay, $duration, $animation, $mode, $count) {
+
+  @each $i in webkit, moz, o {
+    -#{$i}-animation-delay: $delay;
+    -#{$i}-animation-duration: $duration;
+    -#{$i}-animation-name: $animation;
+    -#{$i}-animation-fill-mode: $mode;
+    -#{$i}-animation-iteration-count: $count;
+  }
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: $mode;
+  animation-iteration-count:$count;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

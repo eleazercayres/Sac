@@ -1,0 +1,34 @@
+.main-header{
+  @extend .align-items-center;
+  @extend .align-justify-content-space-between;
+  color:$color-5;
+  @extend .display-flex;
+  @extend .full;
+  margin-bottom:3em;
+  padding-top: 1em;
+  @extend .simplon-oi-headline;
+
+  @media screen and (min-width: 1008px) {
+    position: relative;
+  }
+  
+  h1{
+    font-size:1.25em;
+  }
+
+  .languages{
+    li{
+      font-size:0.8em;
+      @extend .text-transform-uppercase;
+    }
+
+    a{
+      color:$color-5;
+      text-decoration: none;
+    }
+  }
+}
+
+.menu-log{
+  @extend .align-justify-content-flex-end;
+}

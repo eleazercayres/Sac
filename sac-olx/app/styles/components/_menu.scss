@@ -1,0 +1,96 @@
+.menu {
+  cursor: pointer;
+  height: 1.3em;
+  margin-right: 1em;
+  width: 1.3em;
+
+  span {
+    background-color: $color-5;
+    display: block;
+    height: 2px;
+    margin-bottom: 0.2em;
+    width: 100%;
+  }
+}
+
+.config-li-menu {
+  display: none;
+  @include opacity(0);
+  border-bottom: 1px solid #c7c4c4;
+  padding: 0.8em;
+  width: 100%;
+}
+
+.full-menu {
+  background-color: $color-4;
+  @include box-sizing(initial);
+  height: 100%;
+  margin-top: -3em;
+  padding: 4.8em 0em 2.8em 0em;
+  position: fixed;
+  right: 0%;
+  text-align: right;
+  top: 0;
+  @include transition-property(width);
+  @include transition-duration(1s);
+  width: 0%;
+  z-index: 2;
+
+  @media screen and (min-width: 1008px) {
+    height: 100vh;
+    position: absolute;
+  }
+
+  span {
+    li {
+      @extend .config-li-menu;
+    }
+    li:first-child {
+      border-bottom: 0px;
+    }
+  }
+
+  li {
+    @extend .config-li-menu;
+  }
+
+  li:first-child {
+    border-bottom: 0px;
+  }
+
+  .close {
+    color: $color-3;
+    cursor: pointer;
+    font-size: 1em;
+    margin: -0.5em 1.2em 1.4em 0em;
+  }
+
+  a {
+    color: $color-3;
+    font-size: 0.9em;
+    padding-right: 2em;
+    @extend .simplon-oi-headline;
+    text-decoration: none;
+  }
+}
+
+.transparent {
+  background-color: $color-14;
+  content: "";
+  display: none;
+  height: 100%;
+  left: 0;
+  @include opacity(0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#relative-nav {
+  bottom: initial;
+  position: relative;
+  width: 100%;
+  margin-top: 3em;
+  display: inline-block;
+}
