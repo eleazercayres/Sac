@@ -15,7 +15,7 @@ angular
     'ngRoute',
     'ui.mask'
   ])
-  .constant('API_URL', 'https://localhost:8080/')
+  .constant('API_URL', 'http://localhost:8080/olx')
   .config(function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
 	  
     $httpProvider.interceptors.push('authInterceptor');
@@ -27,16 +27,16 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main/'
       })
-//      .when('/about', {
-//        templateUrl: 'views/about.html',
-//        controller: 'AboutCtrl',
-//        controllerAs: 'about'
-//      })
-//      .when('/errorPage', {
- //       templateUrl: 'views/errorpage.html',
-  //      controller: 'ErrorpageCtrl',
-   //     controllerAs: 'errorPage'
-    //  })
+      .when('/rel', {
+        templateUrl: 'views/relatorios.html',
+        controller: 'RelatorioController',
+        controllerAs: 'about'
+      })
+      .when('/errorPage', {
+        templateUrl: 'views/errorpage.html',
+        controller: 'ErrorpageCtrl',
+        controllerAs: 'errorPage'
+      })
       .otherwise({
         redirectTo: '/'
       });

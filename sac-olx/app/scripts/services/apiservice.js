@@ -11,16 +11,21 @@ angular.module('sacolx')
 .service('apiService', function ($http, $rootScope, API_URL) {
 
   return {
-    account: {
-      get                   : api('get', '/account/get/{msisdn}/'),
-      elegible              : api('get', '/account/elegible/{msisdn}/'),
-      create                : api('post', '/account/create/'),
-      update                : api('put', '/account/update/'),
-      verifyAnswer          : api('post', '/account/verifyAnwser/{msisdn}/'),
-      checkOptin            : api('get', '/account/checkOptin/{phone}/'),
-      sendQueueOptin        : api('post', '/account/sendQueueOptin/'),
-      updateTerms           : api('put', '/account/updateAccountTerms/')
+    attendace: {
+      get                   : api('get', '/attendances/'),
+      create                : api('post', '/attendances/')
     },
+    reason: {
+      get                   : api('get', '/reasonCalled/')
+    },
+    type: {
+      get                   : api('get', '/typeCalled/')
+    }
+    ,
+    state: {
+      get                   : api('get', '/states/')
+    }
+    
   };
 
   /**
