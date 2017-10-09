@@ -14,16 +14,19 @@ public class CallDTO {
 	private Date careDay;
 	private TypeOfCall typeOfCall;
 	private ReasonCalled reasonCalled;
-
-	public CallDTO(String phone, String details, String ufName, Date careDay, TypeOfCall typeOfCall,
-			ReasonCalled reasonCalled) {
+	private String dateFormat;
+	private String ufSigla;
+	
+	//c.careDay, c.details, c.reasonCalled, c.typeOfCall, s.idState, s.nome, s.uf
+	
+	public CallDTO(Date careDay, String details, ReasonCalled reasonCalled, TypeOfCall typeOfCall, String ufName, String uf) {
 		super();
-		this.phone = phone;
 		this.details = details;
 		this.ufName = ufName;
 		this.careDay = careDay;
 		this.typeOfCall = typeOfCall;
 		this.reasonCalled = reasonCalled;
+		this.ufSigla = uf;
 	}
 	
 	public CallDTO() {}
@@ -78,6 +81,22 @@ public class CallDTO {
 	public String toString() {
 		return "CallDTO [phone=" + phone + ", details=" + details + ", Uf=" + Uf + ", ufName=" + ufName + ", careDay="
 				+ careDay + ", typeOfCall=" + typeOfCall + ", reasonCalled=" + reasonCalled + "]";
+	}
+
+	public String getDateFormat() {
+		return dateFormat;
+	}
+
+	public void setDateFormat(String dateFormat) {
+		this.dateFormat = dateFormat;
+	}
+
+	public String getUfSigla() {
+		return ufSigla;
+	}
+
+	public void setUfSigla(String ufSigla) {
+		this.ufSigla = ufSigla;
 	}
     
 }
