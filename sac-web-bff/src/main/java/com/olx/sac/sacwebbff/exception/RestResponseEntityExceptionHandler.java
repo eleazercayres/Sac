@@ -23,5 +23,11 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		LOGGER.error(ex.getMessage() + ex);
 		return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.EXPECTATION_FAILED);
 	}
+	
+	@ExceptionHandler(value = { CallServiceException.class })
+	protected ResponseEntity<Object> handleCallServiceException(CallServiceException ex) {
+		LOGGER.error(ex.getMessage() + ex);
+		return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.EXPECTATION_FAILED);
+	}
  
 }

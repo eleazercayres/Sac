@@ -7,7 +7,5 @@ import com.olx.sac.sacwebbff.exception.CallServiceException;
 
 public interface StateService {
 
-	public StateDTO findOnByUf(String uf) throws CallServiceException;
-
 	public List<StateDTO> findAll() throws CallServiceException;
 }

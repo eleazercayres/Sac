@@ -24,21 +24,6 @@ public class StateServiceImpl implements StateService {
 	private ModelMapper modelMapper;
 	
 	@Override
-	public StateDTO findOnByUf(String uf) throws CallServiceException {
-		
-		StateDTO stateDTO = null;
-		
-		try {
-			modelMapper = new ModelMapper();
-			State state= stateRepository.findOneByUf(uf);
-			stateDTO = modelMapper.map(state, StateDTO.class);
-		} catch (Exception e) {
-			throw new CallServiceException(e);
-		}		
-		return stateDTO;
-	}
-	
-	@Override
 	public List<StateDTO> findAll() throws CallServiceException {
 		
 		List<StateDTO> statesDTO = null;

@@ -1,6 +1,7 @@
 package com.olx.sac.test.sacwebbff.controller;
 
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -21,12 +22,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.client.RestOperations;
+import org.springframework.web.util.NestedServletException;
 
 import com.olx.sac.sacserviceapi.attendance.CallDTO;
 import com.olx.sac.sacserviceapi.attendance.StateDTO;
 import com.olx.sac.sacserviceapi.constants.ReasonCalled;
 import com.olx.sac.sacserviceapi.constants.TypeOfCall;
 import com.olx.sac.sacwebbff.controller.AttendanceController;
+import com.olx.sac.sacwebbff.exception.CallServiceException;
 import com.olx.sac.sacwebbff.service.AttendanceService;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -67,8 +70,16 @@ public class AttendanceControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
 		assertNotNull(resultService);
-		Assert.assertTrue(resultService.getResponse().getContentAsString().contains("[{\"phone\":null,\"details\":\"Details\",\"ufName\":null,\"careDay\":1507512051388,\"typeOfCall\":\"CHAT\",\"reasonCalled\":\"DOUBTS\",\"dateFormat\":null,\"ufSigla\":null,\"uf\":{\"idState\":null,\"uf\":null,\"nome\":null}}]"));
+	}
+	
+	@Test(expected=NestedServletException.class)
+	public void findCallGroupByCareDayAndUfOrderByCareDayDescException() throws Exception {
 		
+		doThrow(CallServiceException.class).when(attendanceService).findCallGroupByCareDayAndUfOrderByCareDayDesc();
+		
+		resultService = mockMvc.perform(MockMvcRequestBuilders.get("/olx/attendances"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
 	}
 	
 	@Test
@@ -82,6 +93,16 @@ public class AttendanceControllerTest {
 		
 	}
 	
+	@Test(expected=NestedServletException.class)
+	public void findAllTypeOfCallsException() throws Exception {
+		
+		doThrow(CallServiceException.class).when(attendanceService).findAllTypeOfCalls();
+		
+		resultService = mockMvc.perform(MockMvcRequestBuilders.get("/olx/typeCalled"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+	}
+	
 	@Test
 	public void findAllreasonCalled() throws Exception {
 		
@@ -93,6 +114,15 @@ public class AttendanceControllerTest {
 		
 	}
 	
+	@Test(expected=NestedServletException.class)
+	public void findAllreasonCalledException() throws Exception {
+		
+		doThrow(CallServiceException.class).when(attendanceService).findAllReasonCalleds();
+		
+		resultService = mockMvc.perform(MockMvcRequestBuilders.get("/olx/reasonCalled"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+	}
 
 	private List<CallDTO> listCalls() {
 		List<CallDTO> attendances = new ArrayList<>();
