@@ -14,26 +14,26 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration
-@EnableSwagger2
+//@Configuration
+//@EnableSwagger2
 public class SwaggerConfig {
 
-	@Bean
-	public Docket postsApi() {
-		return new Docket(DocumentationType.SWAGGER_2).groupName("public-api")
-				.apiInfo(apiInfo()).select().paths(postPaths()).build();
-	}
-
-	private Predicate<String> postPaths() {
-		return or(regex("/api/posts.*"), regex("/olx/attendances.*"));
-	}
-
-	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Attendance API")
-				.description("API for attendance services")
-				.termsOfServiceUrl("http://www.google.com")
-				.contact("eleazer.mota@gmail.com").license("Attendance License")
-				.licenseUrl("eleazer.mota@gmail.com").version("1.0").build();
-	}
+//	@Bean
+//	public Docket postsApi() {
+//		return new Docket(DocumentationType.SWAGGER_2).groupName("public-api")
+//				.apiInfo(apiInfo()).select().paths(postPaths()).build();
+//	}
+//
+//	private Predicate<String> postPaths() {
+//		return or(regex("/api/posts.*"), regex("/olx/*.*"));
+//	}
+//
+//	private ApiInfo apiInfo() {
+//		return new ApiInfoBuilder().title("Attendance API")
+//				.description("API for attendance services")
+//				.termsOfServiceUrl("http://www.google.com")
+//				.contact("eleazer.mota@gmail.com").license("Attendance License")
+//				.licenseUrl("eleazer.mota@gmail.com").version("1.0").build();
+//	}
 
 }

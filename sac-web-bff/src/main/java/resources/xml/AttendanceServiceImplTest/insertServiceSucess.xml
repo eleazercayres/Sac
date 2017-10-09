@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+	<tb_state id_state="1" STATE="RJ" NOME="Rio de Janeiro"/>
+
+	<tb_call ID_CALL="1" details="ligacao para duvidas de compra" ID_STATE="1"
+			 DT_CAREDAY="2017-10-10" NM_TYPE_CALL="1" NM_REASON_CALLED="1"/>
+
+</dataset>
