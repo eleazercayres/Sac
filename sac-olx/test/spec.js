@@ -20,5 +20,6 @@ describe('Protractor Test App', function() {
 
     expect(list.count()).toEqual(12);
 
+    
   });
 });
