@@ -20,19 +20,12 @@ import com.olx.sac.sacwebbff.Application;
 @SpringBootApplication(scanBasePackages = { "com.olx.sac.test" })
 public class ApplicationTest extends WebMvcConfigurerAdapter {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTest.class);
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
 		.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
-	}
-
-	@Bean
-	ServletRegistrationBean h2servletRegistration() {
-		ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
-		registrationBean.addUrlMappings("/console/*");
-		return registrationBean;
 	}
 
 	@Bean
@@ -43,7 +36,7 @@ public class ApplicationTest extends WebMvcConfigurerAdapter {
 	public static void main(String[] args) throws InterruptedException {
 
 		try {
-			SpringApplication.run(Application.class, args);
+			SpringApplication.run(ApplicationTest.class, args);
 
 		} catch (Exception e) {
 			LOGGER.error("Application Initialization Error" + e);
