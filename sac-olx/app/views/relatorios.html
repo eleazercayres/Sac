@@ -1,0 +1,36 @@
+<div class="container">
+  
+      <form class="well form-horizontal"  ng-submit="salvar()" id="contact_form">
+  <fieldset>
+  
+  <!-- Form Name -->
+  <legend>SAC OLX.</legend>
+  
+  <!-- Success message -->
+  <div class="alert alert-success" ng-show="success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Salvo com Sucesso.</div>
+  
+  <table id="services" class="table table-bordered table-responsive">
+      <thead>
+       <tr>
+         <th>Data de Atendimento</th>
+         <th>Estado</th>
+         <th>Razão da ligação</th>
+         <th>Tipo de Ligação</th>
+         <th>Detalhes</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr ng-repeat="call in calls">
+         <td ng-bind="call.dateFormat"></td>
+         <td ng-bind="call.ufName"></td>
+         <td ng-bind="call.reasonCalled"></td>
+         <td ng-bind="call.typeOfCall"></td>
+         <td ng-bind="call.details"></td>
+       </tr>
+     </tbody>
+   </table> 
+  
+  </fieldset>
+  </form>
+  </div>
+      </div><!-- /.container -->
