@@ -9,12 +9,19 @@ para rodar oprojeto basta baixar o projeto e rodar o comando
 
 ### Install
 
-Run `mvn install` para instalar
-
-na pasta target do projeto é gerado o jar, basta rodar como java -jar sac-web-bff-0.0.1-SNAPSHOT.jar
+Rub `mvn clean install` no projeto sac api
+Run `mvn spring-boot:run` no projeto bff
 
 depois que o projeto estiver rodando basta seguir as instruções do projeto web para rodar.
 
 ## Testing
 
 Os testes foram feitos no backend com junit, dbunit e mockito
+
+##Banco de dados
+
+Visando facilitar a apresentação o banco esta em h2.
+
+Aplicação documentada com swagger
+
+http://localhost:8080/swagger-ui.html
